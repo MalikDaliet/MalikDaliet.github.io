@@ -90,7 +90,7 @@ $(document).ready(function () {
         // to make seeing issues in the debugger slightly easier (in practice, you should use
         // circles.length, but do NOT change it here)
         for (var i = 0; i < maxCircles; i++) {
-            var circle = circles[j];
+            var circle = circles[i];
 
             // move the circle
             moveCircle(circle);

@@ -80,7 +80,7 @@ function update() {
 function checkForNewDirection(event) {
 
   // TODO 6b: Update snake.head.direction based on the value of activeKey.
-  console.log(activeKey)
+  //console.log(activeKey)
   if (activeKey === KEY.LEFT) {
     snake.head.direction = "left";
   }
@@ -117,6 +117,19 @@ function moveSnake() {
   column/row properties. 
   
   */
+  // for ( /* code to loop through the indexes of the snake.body Array*/ ) {
+  //   var snakeSquare = "???";
+
+  //   var nextSnakeSquare = "???";
+  //   var nextRow = "???";
+  //   var nextColumn = "???";
+  //   var nextDirection = "???";
+
+  //   snakeSquare.direction = nextDirection;
+  //   snakeSquare.row = nextRow;
+  //   snakeSquare.column = nextColumn;
+  //   repositionSquare(snakeSquare);
+  //}
 
   //Before moving the head, check for a new direction from the keyboard input
   checkForNewDirection();
@@ -149,10 +162,15 @@ function hasHitWall() {
   
   HINT: What will the row and column of the snake's head be if this were the case?
   */
+  if (snake.head.row > ROWS || snake.head.column > COLUMNS || snake.head.row < 0 || snake.head.column < 0) {
+    return true
+  } // the total number of ROWS in the board
 
-  return false;
+
+  else {
+    return false;
+  }
 }
-
 function hasCollidedWithApple() {
   /* 
   TODO 9: Should return true if the snake's head has collided with the apple, 
@@ -160,7 +178,10 @@ function hasCollidedWithApple() {
   
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
-
+  if (apple.row === snake.head.row && apple.column === snake.head.column) {
+  return true
+  }
+  // the current row of the apple
   return false;
 }
 
@@ -184,7 +205,8 @@ function handleAppleCollision() {
   */
   var row = 0;
   var column = 0;
-
+  // if (snake.tail.directiob)
+  console.log(snake.tail.dirction);
   // code to determine the row and column of the snakeSquare to add to the snake
 
   makeSnakeSquare(row, column);
