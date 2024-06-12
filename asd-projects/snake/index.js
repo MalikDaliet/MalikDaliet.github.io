@@ -117,12 +117,12 @@ function moveSnake() {
   column/row properties. 
   
   */
-  for ( let i =  snake.body.length - 1; i >= 1; i-- ) {
+  for (let i = snake.body.length - 1; i >= 1; i--) {
     //console.log(snake.body);
     var snakeSquare = snake.body[i];
 
-    var nextSnakeSquare = snake.body[i-1];
-   console.log(nextSnakeSquare);
+    var nextSnakeSquare = snake.body[i - 1];
+    console.log(nextSnakeSquare);
     var nextRow = nextSnakeSquare.row
     var nextColumn = nextSnakeSquare.column;
     var nextDirection = nextSnakeSquare.direction;
@@ -181,7 +181,7 @@ function hasCollidedWithApple() {
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
   if (apple.row === snake.head.row && apple.column === snake.head.column) {
-  return true
+    return true
   }
   // the current row of the apple
   return false;
@@ -207,19 +207,19 @@ function handleAppleCollision() {
   */
   var row = snake.tail.row;
   var column = snake.tail.column;
-   if (snake.tail.direction=== "up"){
+  if (snake.tail.direction === "up") {
     row++
-   }
-   else if (snake.tail.direction === "down") {
+  }
+  else if (snake.tail.direction === "down") {
     row--
-   }
-   else if (snake.tail.direction ==="left" ){
+  }
+  else if (snake.tail.direction === "left") {
     column--
-   }
-   else if (snake.tail.direction === "right"){
+  }
+  else if (snake.tail.direction === "right") {
     column++
-   }
-   console.log(snake);
+  }
+  console.log(snake);
   // code to determine the row and column of the snakeSquare to add to the snake
 
   makeSnakeSquare(row, column);
@@ -234,11 +234,11 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
-for (let i = 0; i < snake.body.length; i++ ) {
-  if (snake.headrow ===snake.body[i].row) {
-    return true
+  for (let i = 1; i < snake.body.length; i++) {
+    if (snake.head.column === snake.body[i].column && snake.head.row === snake.body[i].row) {
+      return true
+    }
   }
-}
 
   return false;
 
@@ -348,7 +348,7 @@ function repositionSquare(square) {
 function getRandomAvailablePosition() {
   var spaceIsAvailable;
   var randomPosition = {};
-
+  console.log(snake)
   /* Generate random positions until one is found that doesn't overlap with the snake */
   while (!spaceIsAvailable) {
     randomPosition.column = Math.floor(Math.random() * COLUMNS);
@@ -360,10 +360,22 @@ function getRandomAvailablePosition() {
     not occupied by a snakeSquare in the snake's body. If it is then set 
     spaceIsAvailable to false so that a new position is generated.
     */
+    //console.log(snake.body[i])
+    for (i = 0; i < snake.body.length; i++) {
+      let s = snake.body[i]
+      if (randomPosition.column === snake.body[i].column && randomPosition.row === snake.body[i].row) {
+        spaceIsAvailable = false;
+      }
+    }
+
+
+
+
   }
 
   return randomPosition;
 }
+
 
 function calculateHighScore() {
   // retrieve the high score from session storage if it exists, or set it to 0
