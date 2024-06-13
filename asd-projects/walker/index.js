@@ -6,11 +6,23 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
+  // SETUP...
+  $(document).on('keydown', handleKeyDown);
+  
+  // CORE LOGIC...
+//  making my buttons work
+  function handleKeyDown(event) {
+    console.log("down key");
+    function handleKeyUp(event){
+      console.log("up key")
+    }
+  }
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
-  
+  const KEY = {
+    ENTER: 13,
+  };
   // Game Item Objects
 
 
