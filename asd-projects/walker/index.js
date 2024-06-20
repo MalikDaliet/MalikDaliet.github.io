@@ -8,6 +8,7 @@ function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   // SETUP...
   $(document).on('keydown', handleKeyDown);
+  $(document).on('keyup', handleKeyUp);
 
   // CORE LOGIC...
 
@@ -54,23 +55,48 @@ function runProgram() {
     }
 
     if (event.which === KEY.UP) {
-     walker.speedYAxis = -5
+      walker.speedYAxis = -5
       console.log("up key")
     }
-// moving left and right
+    // moving left and right
     if (event.which === KEY.RIGHT) {
       walker.speedXAxis = +5
       console.log("right key")
     }
 
     if (event.which === KEY.LEFT) {
-     walker.speedXAxis = -5
+      walker.speedXAxis = -5
       console.log("left key")
     }
     if (event.which === KEY.ENTER) {
       console.log("enter pressed");
     }
   }
+  function handleKeyUp(event) {
+    if (event.which === KEY.DOWN) {
+      walker.speedYAxis = 0
+      console.log("down key");
+    }
+
+    if (event.which === KEY.UP) {
+      walker.speedYAxis = 0
+      console.log("up key")
+    }
+    // moving left and right
+    if (event.which === KEY.RIGHT) {
+      walker.speedXAxis = 0
+      console.log("right key")
+    }
+
+    if (event.which === KEY.LEFT) {
+      walker.speedXAxis = 0
+      console.log("left key")
+    }
+    if (event.which === KEY.ENTER) {
+      console.log("enter pressed");
+    }
+  }
+
   function repositionGameItem() {
     walker.x += walker.speedXAxis
     walker.y += walker.speedYAxis
@@ -80,11 +106,25 @@ function runProgram() {
     $("#walker").css("left", walker.x)
     $("#walker").css("top", walker.y);
   }
-//helper function
- function wallCollision() {
-  $("#board").width()
-  $("#board").height()
- }
+
+  //helper function
+  function wallCollision() {
+    var borderX = $("#board").width()
+    var borderY = $("#board").height()
+    if (walker.x >= borderX){
+      walker.x -= walker.speedXAxis  
+    }
+    if (walker.y >= borderY) {
+      walker.y -= walker.speedYAxis
+    }
+    if (walker.x <= 0){
+      walker.x -= walker.speedXAxis  
+    }
+    if (walker.y <= 0) {
+      walker.y -= walker.speedYAxis
+    }
+  }
+
   function newFrame() {
     repositionGameItem()
     wallCollision()
