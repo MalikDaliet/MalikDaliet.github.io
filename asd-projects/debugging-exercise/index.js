@@ -109,7 +109,7 @@ $(document).ready(function () {
 
     // this moves circles in memory but doesn't update them on the screen
     function moveCircle(circle) {
-        circle.x = circle.speedX;
+        circle.x += circle.speedX;
         circle.y += circle.speedY;
     }
 
@@ -122,8 +122,8 @@ $(document).ready(function () {
             circle.speedX *= -1;
         }
         // this bounces off the right wall
-        else if (circles.x > boardWidth) {
-            circles.x -= circle.speedX;
+        else if (circle.x > boardWidth) {
+            circle.x -= circle.speedX;
             circle.speedX *= -1;
         }
         // this bounces off the top wall
@@ -134,13 +134,13 @@ $(document).ready(function () {
         // this bounces off the bottom wall
         else if (circle.y > boardHeight) {
             circle.y -= circle.speedY;
-            circle.speedX *= -1;
+            circle.speedY *= -1;
         }
     }
 
     // this redraws the circle's position on the screen
     function updateCircleOnScreen(circle) {
-        maxCircles = 0;
+       // maxCircles = 0;
 
         // these lines redraw the circle's position
         $(circle.id).css('left', circle.x);
