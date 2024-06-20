@@ -46,7 +46,7 @@ function runProgram() {
   On each "tick" of the timer, a new frame is dynamically drawn using JavaScript
   by calling this function and executing the code inside.
   */
-  //  making my buttons work
+  //  making my buttons work and changing the speed
   function handleKeyDown(event) {
     if (event.which === KEY.DOWN) {
       walker.speedYAxis = +5
@@ -57,7 +57,7 @@ function runProgram() {
      walker.speedYAxis = -5
       console.log("up key")
     }
-
+// moving left and right
     if (event.which === KEY.RIGHT) {
       walker.speedXAxis = +5
       console.log("right key")
@@ -80,10 +80,16 @@ function runProgram() {
     $("#walker").css("left", walker.x)
     $("#walker").css("top", walker.y);
   }
-
+//helper function
+ function wallCollision() {
+  $("#board").width()
+  $("#board").height()
+ }
   function newFrame() {
     repositionGameItem()
+    wallCollision()
     redrawGameItem()
+
 
   }
 
