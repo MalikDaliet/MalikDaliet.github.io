@@ -52,12 +52,14 @@ async function partition(array, left, right) {
 
         while (array[right].value > pivot) {
             right--
-     if (left < right) {
-        swap(array, left, right)
-     }
         }
-    } 
-    return left++
+        if (left < right) {
+            swap(array, left, right)
+            updateCounter(quickCounter)
+            await sleep()
+        }
+    }
+    return left + 1
 }
 
 // TODO 1: Implement swap
