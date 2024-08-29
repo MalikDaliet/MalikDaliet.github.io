@@ -83,11 +83,15 @@ Before you begin working, you should look at the `image.js` file to see what has
 
 Your first task is to create an `applyFilter` function. This is a big one, so we'll break it down into steps across multiple TODOs.
 
-- **1a)** Make a function called `applyFilter`, and for now, don't give it any parameters. Also leave the code block empty until **1c**.
+- **1a)** Make a function called name `applyFilter`, and for now, don't give it any parameters. Also leave the code block empty until **1c**.
 
-- **1b)** Call `applyFilter` inside of the `applyAndRender` function in the event handler section of your file. There is a comment that tells you where to put the function call.
+- **1b)** Call `applyFilter` in the `applyAndRender` function in the event handler section of your file. There is a comment that tells you where to put the function call.
 
 - **1c)** Inside of the code block of `applyFilter`, make nested loops to iterate over your `image` data. Recall that `image` is a 2D array, and be careful not to mix up the counting variables of each loop. Reference either Greenlight or your slides (or do a Google search) if you need a reminder on how to iterate over a 2D array.
+
+<br>
+<h3 align="center">YOU DO NOT NEED TO OPEN LIVE SERVER FOR THIS TODO</h3>
+<br>
 
 ## TODO 2: Create the `applyFilter` Function Part 2
 
@@ -109,7 +113,23 @@ Now, for this step, you will need to alter your image. **This should be done in 
 
 - **2e)** Assign `rgbString` back into the `image` array (put it at the same index location that you first pulled the original `rgbString` out of back in **2a.**).
 
-> **TESTING:** Once this is done, check your preview to see if your image became much more yellow/orange/red. You will need to click "Apply Filter" to apply the filter. If the image changes colors, then you are ready for the next TODO!
+> **TESTING:** Once this is done, check your preview to see if your image became much more yellow/orange/red. If so, then you are ready for the next TODO!
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND CLICK "Apply Filter"</b></h3>
+  <p align="center"><b>Do you see the image get more red?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE IMAGE BECOME REDDER</b></p>
+
+<br>
+<br>
+<br>
+<br>
 
 ## TODO 3: Create a Filter Function
 
@@ -126,6 +146,10 @@ This TODO requires you to make a filter function.
 
 That's it!
 
+<br>
+<h3 align="center">YOU DO NOT NEED TO OPEN LIVE SERVER FOR THIS TODO</h3>
+<br>
+
 ## TODO 4: Update `applyFilter`
 
 Now, you need to make your `applyFilter` be a higher order function that uses other functions to apply filters to the image. This can be done in three steps.
@@ -139,6 +163,22 @@ Now, you need to make your `applyFilter` be a higher order function that uses ot
 > - make sure that you are **not** calling `reddify` when you pass it as an argument to `applyFilter`
 > - make sure that you are **not** calling `filterFunction` in the parameter list
 > - make sure that you **_are_** calling `filterFunction` with `rgbNumbers` as an argument on the correct line
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND CLICK "Apply Filter"</b></h3>
+  <p align="center"><b>Do you see the image get more red still (but not as much as after TODO 2)?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE IMAGE BECOME REDDER</b></p>
+
+<br>
+<br>
+<br>
+<br>
 
 ## TODO 5: Create the `keepInBounds` Function
 
@@ -155,7 +195,7 @@ Now that `applyFilter` is a higher order function, you should make more filters 
   1. If the parameter has a value of less than `0`, return `0`.
   2. If the parameter has a value of greater than `255`, return `255`.
   3. If the parameter's value is between `0` and `255`, return the parameter's value.
-  4. For full credit, you _MUST NOT_ use `if` statements in the function. Use the ternary operator to decide what value to return. (Alternatively, you can `Math.max()` and `Math.min()` instead of the ternary operator, but it is not required).
+  4. For full credit, you _MUST NOT_ use `if` statements in the function. Use `Math.max()` and `Math.min()` to decide what value to return. (Alternatively, you can look up the "ternary operator" on Google and use that, but it is not required).
 
 > <details> <summary> CLICK FOR HINTS on using Math.max() and Math.min() </summary>
 >
@@ -203,6 +243,22 @@ console.log(keepInBounds(300)); // should print 255
 console.log(keepInBounds(127)); // should print 127
 ```
 
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND OPEN THE CONSOLE</b></h3>
+  <p align="center"><b>Do you see the numbers 0, 255, and 127 printing? If so, then you should delete the console.log statements and move on to the next step</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THOSE THREE NUMBERS PRINTING</b></p>
+
+<br>
+<br>
+<br>
+<br>
+
 ## TODO 6: Create More Filter Functions
 
 Now it's time to finally create some more filter functions.
@@ -239,7 +295,23 @@ Now it's time to finally create some more filter functions.
 > <green value> = keepInBounds(<blue value> + <green value>);
 > ```
 
-> **TESTING:** Once you have both filters created, apply all three of them by calling `applyFilter` a total of three times, with each filter passed as arguments in turn. This should be done in the `applyAndRender` function where you are already calling `applyFilter` with `reddify`.
+> **TESTING:** Once you have both filters created, apply all three of them by calling `applyFilter` a total of three times, with each filter passed as arguments in turn. This should be done in the `applyAndRender` function where you are already calling `applyFilter` with `reddify`. You should see the image become yellower with all three filters applied simultaneously.
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND CLICK "Apply Filter"</b></h3>
+  <p align="center"><b>Do you see the image get more yellow?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE IMAGE BECOME YELLOWER</b></p>
+
+<br>
+<br>
+<br>
+<br>
 
 ## TODO 7: Create the `applyFilterNoBackground` Function
 
@@ -249,15 +321,33 @@ Now it's time to finally create some more filter functions.
 
 > **WARNING:** Do not hard code the value of the background color.
 
-- **7c)** Inside of the inner loop of `applyFilterNoBackground`, use a conditional statement to check if the current pixel value is equal to the background pixel value. If it is not, then apply the filter.
+- **7c)** Inside of the inner loop of `applyFilterNoBackground`, use a conditional statement to check if the current pixel value is equal to the background pixel value. If it is, then apply the filter.
 
-> **HINT:** There should be five lines of code in `applyFilterNoBackground` before completing **7c.**. Four of those lines of code are involved in applying the filter, so those lines need to be inside of the conditional's code block. One line, however, should not be inside of the code block, as it needs to happen no matter what (**Double hint: which line of code gets you a value that you need for your conditional's comparison?**).
+> **HINT:** There should be five lines of code in `applyFilterNoBackground` before completing **7c.**. Four of those lines of code are involved in applying the filter, so those lines need to be inside of the conditional's code block. The fifth one should not be inside of the code block, as it needs to happen no matter what (**Double hint: which line of code gets you a value that you need for your conditional's comparison?**).
 
-> **TESTING:** Once you've got this function working, replace **TWO** of your three `applyFilter` function calls with `applyFilterNoBackground`. You should see only one filter alter the background color, but all of them will change the main image!
+> **TESTING:** Once you've got this function working, replace your three `applyFilter` function calls with `applyFilterNoBackground`. You should see now see Luigi become yellower, but the backround will remain unchanged!
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER AND CLICK "Apply Filter"</b></h3>
+  <p align="center"><b>Do you see the image get more yellow, but the background remains the same?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE IMAGE BECOME YELLOWER, BUT THE BACKGROUND REMAINS THE SAME</b></p>
+
+<br>
+<br>
+<br>
+<br>
 
 ## Challenge Task: Smudge
 
 As a final challenge, you can try to apply a smudge to your image. A smudge is where you take colors from neighboring pixels and slide them over, making it look like you smudged the image with your finger. You can even customize the smudge with filters to affect how much color (and even which colors!) you smudge over.
+
+This exercise is among the most difficult in the course, but it will give you a chance to practice your skills with higher order functions and nested loops. Even more importantly, it will give you a chance to practice your problem-solving skills regarding data manipulation, which is a skill that is highly sought after in the tech industry.
 
 > If you want to give this challenge a try, here are some hints as to how to proceed:
 >
@@ -270,9 +360,8 @@ As a final challenge, you can try to apply a smudge to your image. A smudge is w
 
 Submit your work regularly. Because these files are already being tracked by your GitHub repo, you can skip the "git add" step. Instead, enter the following commands:
 
-> ```bash
 > git commit -a -m "saving image filtering"
+>
 > git push
-> ```
 
 Congratulations on using using higher order functions in a practical application!

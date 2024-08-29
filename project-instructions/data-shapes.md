@@ -88,6 +88,22 @@ By default, the program produces data for 26 different objects automatically. Yo
 >
 > In the live server, click "Next" or "Prev" until you reach the last index number. If the highest index number is now 26 instead of 25, then you succeeded in adding a new object to the array.
 
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER</b></h3>
+  <p align="center"><b>Is the last index number 26?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS THE LAST INDEX NUMBER IS 26</b></p>
+
+<br>
+<br>
+<br>
+<br>
+
 ## TODO 2: Add a New Property
 
 For this TODO, you will need to add a new `goodBehavior` property to every object in the `dataShapes` array.
@@ -108,6 +124,24 @@ For this TODO, you will need to add a new `goodBehavior` property to every objec
 
 > **HINT:** 2c, 2d, and 2e are mutually exclusive; can they all be `if` statements? If not, what should they be?
 
+> **TESTING:** If properly completed, then all boxes should display a "goodBehavior" property when you click "Next" or "Prev". Be sure to check all differently colored shapes.
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER</b></h3>
+  <p align="center"><b>Do all index numbers have a valid "goodBehavior"?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS ALL INDEX NUMBERS HAVE 'spin', 'blink', OR 'bounce' DISPLAYED</b></p>
+
+<br>
+<br>
+<br>
+<br>
+
 ## TODO 3: Help Display a Shape (Static)
 
 This TODO will allow you to finally display shapes by clicking the "Display" button. To do so, you will have to both create a new function, and then call that function at the appropriate place.
@@ -117,13 +151,30 @@ This TODO will allow you to finally display shapes by clicking the "Display" but
   1. Call the function `setBackgroundWithObject` (already created for you), and pass in `data` as its only argument
   2. Set `animationDetails.displayType` to store `1`
 
-- **3b)** Find where TODO 3b is listed in your code. There, call your `handleStatic` function. It should take the current shape object as an argument. Check the below HINT for how to access the current shape, as it is *not* referring to the `currentShape` variable.
+- **3b)** Find where TODO 3b is listed in your code. There, call your `handleStatic` function. It should take the current shape object as an argument. Check the below HINT for how to access the current shape, as it is _not_ referring to the `currentShape` variable.
 
 > **HINT:** `dataShapes` is your array of shape objects. The current index being displayed is stored in a variable called `currentIndex`. How can you use that to get the correct object from your `dataShapes` array and pass it into `handleStatic`?
 
 > **TESTING:**
 >
 > In the live server, you should now see shapes appear if you click the "Display" button. Try testing with multiple shapes.
+
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER</b></h3>
+  <p align="center"><b>Do all index numbers show a shape when you click "Display"?</b></p>
+  <p align="center"><b>Do you see the full shapes or only partial shapes?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE FULL SHAPES DISPLAYED AFTER CLICKING "Display"</b></p>
+
+<br>
+<br>
+<br>
+<br>
 
 ## TODO 4: Help Display a Shape (Good Behavior)
 
@@ -145,6 +196,24 @@ This TODO will allow you to display shapes through the "Display Good" button, wh
 >
 > In the live server, you should now see shapes appear and animate if you click the "Display Good" button. Try testing with differently colored shapes.
 
+<hr>
+
+<br>
+<br>
+<br>
+<br>
+
+  <h3 align="center"><b>CHECK YOUR LIVE SERVER</b></h3>
+  <p align="center"><b>Do all red shapes bounce around after clicking "Display Good"?</b></p>
+  <p align="center"><b>Do all green shapes spin after clicking "Display Good"?</b></p>
+  <p align="center"><b>Do all blue shapes blink in and out after clicking "Display Good"?</b></p>
+  <p align="center"><b>DO NOT MOVE FORWARD UNLESS YOU SEE THE ABOVE BEHAVIORS AFTER CLICKING "Good Display"</b></p>
+
+<br>
+<br>
+<br>
+<br>
+
 ## TODO 5: Help Display a Shape (Bad Behavior)
 
 This TODO will allow you to display shapes through the "Display Bad" button, which will animate the shapes in every way except for their "good" behavior. Once again, you will need to create a new function and subsequently call that function.
@@ -159,11 +228,21 @@ This TODO will allow you to display shapes through the "Display Bad" button, whi
 
   1. Create a new variable called `currentShape` and copy the shape from `dataShapes`'s `currentIndex` into that new variable.
   2. Create a new variable called `repeat` and copy the value of `currentShape`'s `repeat` property into this new variable.
-  2. Call your `handleBad` function. It should take the `currentShape` and `repeat` as arguments.
+  3. Call your `handleBad` function. It should take the `currentShape` and `repeat` as arguments.
 
 > **TESTING:**
 >
-> In the live server, you should now see shapes appear and animate if you click the "Display Bad" button. Try testing with differently colored shapes.
+> In the live server, you should now see shapes appear and animate if you click the "Display Bad" button. To most easily test this, go to index 26 and click "Display Bad". You should see the shape both spin and bounce around, and you should see 4x4 blue circles. You may test other shapes as well, but if all other TODOs were completed successfully, this is a sufficient test.
+
+<br>
+<br>
+
+<h3 align="center"><b>CHECK YOUR LIVE SERVER</b></h3>
+<p align="center"><b>Does your index 26 shape behave as described in the TESTING step above after clicking "Display Bad"?</b></p>
+<p align="center"><b>THIS PROJECT IS NOT COMPLETE UNTIL IT DOES</b></p>
+
+<br>
+<br>
 
 # Submit Your Work
 
@@ -172,5 +251,7 @@ Submit your work regularly. Because these files are already being tracked by you
 > git commit -a -m "saving data shapes"
 >
 > git push
+
+> **NOTE:** If you have added in images to this project, then you will need to also run `git add -A` before committing.
 
 Congratulations on completing this project!
