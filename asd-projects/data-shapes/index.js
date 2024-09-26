@@ -45,7 +45,7 @@ $(document).ready(function () {
   }
   dataShapes.push(shape)
   // TODO 2: add a new property to all data shapes
-  for(var i = 0; i < dataShapes; i++) {
+  for(var i = 0; i < dataShapes.length; i++) {
     let currentShape = dataShapes[i]
   
 if (currentShape.color === "red" ){
@@ -58,6 +58,7 @@ else {
   currentShape.goodBehavior = "spin"
 }
   }
+  console.log()
   // TODO 3-a: add a function that handles the static display type
   function handleStatic(data){
     setBackgroundWithObject(data)
@@ -72,6 +73,11 @@ animationDetails.displayType = 2
   
 
   // TODO 5-a: add a function that handles the bad display type
+  function handleBad (data, repeat) {
+    repeat = repeat + 1
+    setBackgroundWithMixed(data, repeat)
+    animationDetails.displayType = 3
+  }
   
 
   /////////////////////////////////////////////////
@@ -85,13 +91,16 @@ animationDetails.displayType = 2
 
   function goodDisplay() {
     // TODO 4-b: call your handleGood function
-  let currentShape = dataShapes[currentIndex]
-  handleGood()
+  let currentShape = dataShapes[currentIndex] 
+  console.log(currentShape)
+  handleGood(currentShape.color, currentShape.shape, currentShape.repeat)
   }
 
   function badDisplay() {
     // TODO 5-b: call your handleBad function
-    
+  let currentShape = dataShapes[currentIndex]
+  let repeat = currentShape.repeat
+  handleBad(currentShape, repeat)
   }
 
   /////////////////////////////////////////////////
