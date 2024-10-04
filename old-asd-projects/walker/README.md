@@ -144,9 +144,7 @@ Together, these components will look like this:
 $(document).on('keydown', handleKeyDown);
 
 // CORE LOGIC...
-function handleKeyDown(event) {
-  console.log(???);
-}
+
 ```
 
 > > **HINT:** How do you know _which_ key was pressed from the given `event` object? Check out <a href=https://keycode.info/>keycode.info</a> for help!
