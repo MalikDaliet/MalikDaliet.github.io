@@ -6,7 +6,7 @@ function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////// SETUP /////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-  
+
   // Constant Variables
   var FRAME_RATE = 60;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
@@ -17,20 +17,21 @@ function runProgram() {
     RIGHT: 39,
     ENTER: 13
   }
+
+  // Game Item Objects
   let walker = {
     x: 0,
     y: 0,
     speedXAxis: 0,
     speedYAxis: 0
   }
-  // Game Item Objects
-  
-  
+
+
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);
-                           // change 'eventType' to the type of event you want to handle
-  
+  // change 'eventType' to the type of event you want to handle
+
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -40,7 +41,9 @@ function runProgram() {
   by calling this function and executing the code inside.
   */
   function newFrame() {
-
+    respoitionGameItem()
+     wallCollision()
+    redrawGameItem()
 
   }
 
@@ -56,18 +59,19 @@ function runProgram() {
       console.log("up pressed")
     }
     if (event.which === key.DOWN) {
-     walker.speedYAxis = +5
+      walker.speedYAxis = 5
       console.log("down pressed")
     }
-    if ( event.which === key.LEFT){
+    if (event.which === key.LEFT) {
       walker.speedXAxis = -5
       console.log("left pressed")
     }
-    if (event.which === key.RIGHT){
-      walker.speedXAxis = +5
+    if (event.which === key.RIGHT) {
+      walker.speedXAxis = 5
       console.log("right pressed")
     }
   }
+
   function handleKeyUp(event) {
     if (event.which === key.DOWN) {
       walker.speedYAxis = 0
@@ -97,12 +101,32 @@ function runProgram() {
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-function respoition (){
+  function respoitionGameItem() {
+    walker.x += walker.speedXAxis
+    walker.y += walker.speedYAxis
+  }
 
-}
-function redrawGameItem (){
-  
-}
+  function redrawGameItem() {
+    $("#walker").css("left", walker.x)
+    $("#walker").css("top", walker.y)
+  }
+
+  function wallCollision() {
+    let boarderX = $("#board").width()
+    let boarderY = $("#board").height()
+    if (walker.x >= boarderX) {
+      walker.x -= walker.speedXAxis
+    }
+    if (walker.y >= boarderY) {
+      walker.y -= walker.speedYAxis
+    }
+    if (walker.x <= 0) {
+      walker.x -= walker.speedXAxis
+    }
+    if (walker.y <= 0) {
+      walker.y -= walker.speedYAxis
+    }
+  }
 
   function endGame() {
     // stop the interval timer
