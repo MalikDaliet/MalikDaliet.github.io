@@ -37,22 +37,30 @@ function applyFiller(filterFunction) {
     let row = image[i]
     for (let j = 0; j < row.length; j++) {
       let rgbString = row[j]
-      let rgbNumbers = rgbArrayToString(rgbNumbers)
+      console.log(rgbString)
+      let rgbNumbers = rgbStringToArray(rgbString)
       filterFunction (rgbNumbers)
+      rgbString = rgbArrayToString(rgbNumbers)
+      row[j] = rgbString
     }
   }
 }
 
 // TODO 7: Create the applyFilterNoBackground function
 function applyFilterNoBackground() {
+  let backgroundColor = image[0] [0]
   function applyFiller(filterFunction) {
   for (let i = 0; i < image.length; i++) {
     let row = image[i]
     for (let j = 0; j < row.length; j++) {
       let rgbString = row[j]
       let rgbNumbers = rgbArrayToString(rgbNumbers)
-     if (rgb)
+     if (rgbString != backgroundColor) {
+      applyFilterNoBackground()
+     }
       filterFunction (rgbNumbers)
+      rgbString = rgbArrayToString(rgbNumbers)
+          row[j] = rgbString
     }
   }
 }
