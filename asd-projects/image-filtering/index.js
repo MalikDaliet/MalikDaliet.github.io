@@ -20,7 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-  applyFiller(reddify)
+ applyFiller(reddify)
   applyFilterNoBackground(decreaseBlue)
   applyFilterNoBackground(reddify)
   applyFilterNoBackground(increaseGreenByBlue)
@@ -44,7 +44,7 @@ function applyFiller(filterFunction) {
       filterFunction(rgbNumbers)
       rgbString = rgbArrayToString(rgbNumbers)
       row[j] = rgbString
-      filterFunction(rgbNumbers)
+      
     }
   }
 }
@@ -57,8 +57,8 @@ function applyFilterNoBackground(filterFunction) {
     let row = image[i]
     for (let j = 0; j < row.length; j++) {
       let rgbString = row[j]
-      let rgbNumbers = rgbArrayToString(rgbString)
       if (rgbString != backgroundColor) {
+        let rgbNumbers = rgbStringToArray(rgbString)
         filterFunction(rgbNumbers)
         rgbString = rgbArrayToString(rgbNumbers)
         row[j] = rgbString
@@ -84,7 +84,7 @@ function reddify(arr) {
 
 // TODO 6: Create more filter functions
 function decreaseBlue(arr) {
-  arr[BLUE] = keepInBounds(arr[BLUE - 50])
+  arr[BLUE] = keepInBounds(arr[BLUE] - 50) 
 }
 function increaseGreenByBlue(arr) {
   arr[GREEN] = keepInBounds(arr[BLUE] + arr[GREEN])
