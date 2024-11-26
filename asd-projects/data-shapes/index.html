@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <title>Snake</title>
-    <!--Link jQuery and CSS here-->
-    <link rel="stylesheet" type="text/css" href="index.css" />
-    <script src="jquery.min.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Data Shapes</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="index.js"></script>
   </head>
   <body>
-    <div id="board"></div>
-    <h1 id="score">Score: 0</h1>
-    <h1 id="highScore">High Score: 0</h1>
+    <div id="board">
+      <div id="info-bar">Current index: 0</div>
+      <div id="shape-container">
+        <div id="shape"></div>
+      </div>
+      <div id="button-box">
+        <button id="cycle-left">Prev</button>
+        <button id="cycle-right">Next</button>
+        <button id="execute1">Display</button>
+        <button id="execute2">Display Good</button>
+        <button id="execute3">Display Bad</button>
+      </div>
+    </div>
   </body>
-  
-  <!-- Link index.js here -->
-  <script src="index.js"></script>
-
 </html>

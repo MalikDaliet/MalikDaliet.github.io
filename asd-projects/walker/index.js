@@ -30,6 +30,7 @@ function runProgram() {
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on('keydown', handleKeyDown);
+  $(document).on('keyup', handleKeyUp)
   // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
@@ -112,19 +113,20 @@ function runProgram() {
   }
 
   function wallCollision() {
-    let boarderX = $("#board").width()
-    let boarderY = $("#board").height()
+    let boarderX = $("#board").width() - $("#walker").width()
+    let boarderY = $("#board").height() - $("#walker").height()
+
     if (walker.x >= boarderX) {
-      walker.x -= walker.speedXAxis
+      walker.x = boarderX
     }
     if (walker.y >= boarderY) {
-      walker.y -= walker.speedYAxis
+      walker.y = boarderY
     }
     if (walker.x <= 0) {
-      walker.x -= walker.speedXAxis
+      walker.x = 0
     }
     if (walker.y <= 0) {
-      walker.y -= walker.speedYAxis
+      walker.y = 0
     }
   }
 
