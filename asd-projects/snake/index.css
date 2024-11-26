@@ -6,12 +6,12 @@ body {
 #board {
   width: 440px;
   height: 440px;
-  border: 1px solid white;
+  border: 1px solid rgb(6, 243, 10);
   background-color: black;
 }
 
 #score, #highScore {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .snake, .apple {
@@ -28,7 +28,7 @@ body {
 }
 
 #snake-head {
-  background-color: darkgreen;
+  background-color: rgb(239, 246, 239);
 }
 
 .apple {
