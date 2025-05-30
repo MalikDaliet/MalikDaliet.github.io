@@ -27,16 +27,20 @@ $(document).ready(function () {
   };
 
   // This line produces most of the data array and stores it in the variable "dataShapes"
-  const dataShapes = generateShapeData();
+let dataShapes = generateShapeData();
   var currentIndex = 0;
 
   /////////////////////////////////////////////////
   // ALL OF YOUR CODE SHOULD GO BELOW HERE ////////
   /////////////////////////////////////////////////
-
+// TODO 0 complete 
   // TODO 1: create a new shape object and add it to the array
-  
-
+  let shape = {
+    color: "blue",
+    shape: "circle",
+    repeat: 3
+  }
+dataShapes = shape
   // TODO 2: add a new property to all data shapes
   
 
