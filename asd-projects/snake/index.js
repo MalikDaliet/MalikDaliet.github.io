@@ -112,7 +112,20 @@ function moveSnake() {
   column/row properties. 
   
   */
+  /* code to loop through the indexes of the snake.body Array*/
+  for (let i = snake.body.length - 1; i > 0; i--) {
+    var snakeSquare = snake.body[i];
 
+    var nextSnakeSquare = snake.body[i - 1];
+    var nextRow = nextSnakeSquare.row;
+    var nextColumn = nextSnakeSquare.column;
+    var nextDirection = nextSnakeSquare.direction;
+
+    snakeSquare.direction = nextDirection;
+    snakeSquare.row = nextRow;
+    snakeSquare.column = nextColumn;
+    repositionSquare(snakeSquare);
+  }
   //Before moving the head, check for a new direction from the keyboard input
   checkForNewDirection();
 
@@ -149,11 +162,11 @@ function hasHitWall() {
   HINT: What will the row and column of the snake's head be if this were the case?
   */
   // need to compare __snake head  row and column_________WITH _wall, self, and apple collision________
-  if (snake.head.row > ROWS ||snake.head.row === -1 ) {
+  if (snake.head.row > ROWS || snake.head.row === -1) {
     return true;
   }
-   if(snake.head.column === -1 || snake.head.column > COLUMNS ) {
-    return true
+  if (snake.head.column === -1 || snake.head.column > COLUMNS) {
+    return true;
   }
   return false;
 }
@@ -165,10 +178,10 @@ function hasCollidedWithApple() {
   
   HINT: Both the apple and the snake's head are aware of their own row and column
   */
-// we have to make it to where the snakes head collides with ther apple
-if(apple.row === snake.head.row && apple.column === snake.head.row){
-  return true
-}
+  // we have to make it to where the snakes head collides with ther apple
+  if (apple.row === snake.head.row && apple.column === snake.head.column) {
+    return true;
+  }
   return false;
 }
 
@@ -190,9 +203,25 @@ function handleAppleCollision() {
   If the tail is moving "down", place the next snakeSquare above it.
   etc...
   */
-  var row = 0;
-  var column = 0;
+  var row = snake.tail.row;
+  var column = snake.tail.coulumn;
 
+  if (snake.tail.direction === "left") {
+    row = snake.tail.row;
+    column = snake.tail.column + 1; // Place the new piece to the RIGHT of the tail
+  }
+  if (snake.tail.direction === "right") {
+    row = snake.tail.row;
+    column = snake.tail.column - 1;
+  }
+  if (snake.tail.direction === "up") {
+    row = snake.tail.row + 1;
+    column = snake.tail.column; // Place the new piece to the RIGHT of the tail
+  }
+  if (snake.tail.direction === "down") {
+    row = snake.tail.row - 1;
+    column = snake.tail.column; // Place the new piece to the RIGHT of the tail
+  }
   // code to determine the row and column of the snakeSquare to add to the snake
 
   makeSnakeSquare(row, column);
@@ -207,7 +236,10 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
-
+  if (
+    snake.head === snakeSquare) {
+    return true;
+  }
   return false;
 }
 
