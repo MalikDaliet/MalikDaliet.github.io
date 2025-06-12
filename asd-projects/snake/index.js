@@ -236,6 +236,7 @@ function hasCollidedWithSnake() {
   head and each part of the snake's body also knows its own row and column.
   
   */
+  //compare snake head with snake bodyand a loop
   if (
     snake.head === snakeSquare) {
     return true;
