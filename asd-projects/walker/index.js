@@ -28,7 +28,7 @@ function runProgram() {
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL); // execute newFrame every 0.0166 seconds (60 Frames per second)
   $(document).on("keydown", handleKeyDown); // change 'eventType' to the type of event you want to handle
-
+$(document).on("keyup", handleKeyUp)
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -41,6 +41,7 @@ function runProgram() {
   function newFrame() {
     redrawGameItem();
     repositionGameItem();
+    wallCollision()
   }
 
   /* 
@@ -49,20 +50,42 @@ function runProgram() {
 
   function handleKeyDown(event) {
     if (event.which === KEY.LEFT) {
-      console.log("left");
+      walker.speedX = -5
+      
     }
-    if (event.which === KEY.RIGHT) {
-      console.log("right");
+    else if (event.which === KEY.RIGHT) {
+      walker.speedX = + 5
+     
     }
-    if (event.which === KEY.UP) {
-      console.log("up");
+    else if (event.which === KEY.UP) {
+      walker.speedY = - 5
+      
     }
-    if (event.which === KEY.DOWN) {
-      console.log("down");
+    else if (event.which === KEY.DOWN) {
+      walker.speedY = +5
+      
     }
-    //console.log(???);
+   
+    
   }
-
+function handleKeyUp (){
+if (event.which === KEY.LEFT) {
+      walker.speedX = 0
+      
+    }
+    else if (event.which === KEY.RIGHT) {
+      walker.speedX = 0
+     
+    }
+    else if (event.which === KEY.UP) {
+      walker.speedY = 0
+      
+    }
+    else if (event.which === KEY.DOWN) {
+      walker.speedY = 0
+      
+    }
+}
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -73,8 +96,24 @@ function runProgram() {
 
   function redrawGameItem() {
     $("#walker").css("left", walker.x); // draw the box in the new location, positionX pixels away from the "left"
+   $("#walker").css("top", walker.y)
   }
-
+function wallCollision(){
+  // compare walker's position to the board's
+ // console.log($("#board").width())
+  if(walker.x > $("#board").width()){
+  // console.log("at edge")
+  walker.x-= walker.speedX
+  } 
+  if (walker.x < 0){
+    walker.x -= walker.speedX
+  }
+  if (walker.y > $("#board").height()){
+    walker.y -= walker.speedY
+  }
+  if(walker.y < 0){
+    walker.y -= walker.speedY
+  } 
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
@@ -82,4 +121,5 @@ function runProgram() {
     // turn off event handlers
     $(document).off();
   }
+}
 }
