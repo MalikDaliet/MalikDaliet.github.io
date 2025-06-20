@@ -20,8 +20,7 @@ function resetAndRender() {
 // all of your apply functions
 function applyAndRender() {
   // Multiple TODOs: Call your apply function(s) here
-
-  
+  applyFilter();
 
   // do not change the below line of code
   render($("#display"), image);
@@ -32,18 +31,31 @@ function applyAndRender() {
 /////////////////////////////////////////////////////////
 
 // TODO 1, 2, 3 & 5: Create the applyFilter function here
-
+function applyFilter() {
+  for (let i = 0; i < image.length; i++) {
+    for (let j = 0; j < image[i].length; j++) {
+      console.log(image[i][j]);
+      let pixel = image[i][j];
+      let pixelArray = rgbStringToArray(pixel);
+      // This is where I’ll modify the color values later
+      let updatedPixel = rgbArrayToString(pixelArray);
+     //fix me
+      pixel = updatedPixel
+      console.log("pixel:", pixel);
+      console.log("pixelArray:", pixelArray);
+      console.log("updatedPixel:", updatedPixel);
+      // Goal: Change the red value in each pixel’s color data by updating the pixelArray.
+      
+    }
+  }
+}
 
 // TODO 9 Create the applyFilterNoBackground function
 
-
 // TODO 6: Create the keepInBounds function
-
 
 // TODO 4: Create reddify filter function
 
-
 // TODO 7 & 8: Create more filter functions
-
 
 // CHALLENGE code goes below here
